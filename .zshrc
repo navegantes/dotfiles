@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/home/nave/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -10,18 +11,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="amuse"
-# ZSH_THEME="frontcube"
-# ZSH_THEME="candy"
-
-# ZSH_THEME="avit"
-# ZSH_THEME="spaceship"
-
-# ZSH_THEME="fino"
-# ZSH_THEME="frisk"
-# ZSH_THEME="ys"
-# ZSH_THEME="intheloop"
-
-
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -94,6 +83,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+#source $ZSH/zsh-interactive-cd.plugin.zsh
 
 # User configuration
 
@@ -118,50 +108,65 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="gedit ~/.zshrc"
+alias zshconfige="gedit ~/.zshrc &"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias lsort="ls -la | sort -r"
+alias pysys="/usr/bin/python3"
+alias cls="clear"
+alias ll="ls -l"
+alias lla="ls -la"
+alias llah="ls -lah"
+alias lsort="ls -lah | sort -r"
 alias lx="exa -lah -F --icons --group-directories-first"
+
+# eval "$(oh-my-posh init zsh)"
+# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/jandedobbeleer.omp.json)"
+# eval "$(oh-my-posh init zsh --config ~/.poshthemes/tiwahu.omp.json)"
+# eval "$(oh-my-posh init zsh --config ~/.poshthemes/craver.omp.json)"
+# eval "$(oh-my-posh init zsh --config ~/.poshthemes/multiverse-neon.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/mytheme.omp.json)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Homebrew
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-
-# Poetry
-export PATH="/home/navegantes/.local/bin:$PATH"
-
-# Spaceship Theme
-# source /home/linuxbrew/.linuxbrew/opt/spaceship/spaceship.zsh
-# SPACESHIP_TIME_SHOW=false
-# SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=false
-
-#oh-my-posh
-eval "$(oh-my-posh init zsh)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/star.omp.json)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/tokyonight_storm.omp.json)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/spaceship.omp.json)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/multiverse-neon.omp.json)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/tiwahu.omp.json)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/craver.omp.json)"
-
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/mytiwahu.omp.json)"
-eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/mytheme.omp.json)"
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/mymultiverse-neon.omp.json)"
-# eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/mytheme.omp.json)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
-# export PATH="$HOME/.pyenv/bin:$PATH"
+#export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # bun completions
-[ -s "/home/navegantes/.bun/_bun" ] && source "/home/navegantes/.bun/_bun"
+[ -s "/home/nave/.bun/_bun" ] && source "/home/nave/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export MANPAGER="/usr/bin/most -s"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#Laravel
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+#Go
+export PATH=$PATH:/usr/local/go/bin
+
+# <<<< Added by Spyder <<<<
+alias spyder=/home/nave/.local/Spyder-5.5.5/envs/spyder-5.5.5/bin/spyder
+alias uninstall-spyder=/home/nave/.local/Spyder-5.5.5/uninstall-spyder.sh
+# >>>> Added by Spyder >>>>
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/nave/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
