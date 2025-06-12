@@ -1,0 +1,28 @@
+line-length = 79
+extend-exclude = ['migrations']
+indent-width = 4
+
+[lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[lint.isort]
+lines-after-imports = 2
+no-lines-before = ["future", "standard-library"]
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "local-folder",
+]
+detect-same-package = true
+length-sort = true
+force-wrap-aliases = true
+combine-as-imports = true
+length-sort-straight = true
+
+[format]
+preview = true
+quote-style = 'single'
+indent-style = "space"
